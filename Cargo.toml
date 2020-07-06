@@ -1,0 +1,30 @@
+[package]
+name = "stm32f4_adc"
+version = "0.1.0"
+authors = ["Rihab JOUINI <rihab.jouini@mobile-devices.fr>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal = "0.2" #a multi device hardware abstraction on top of the peripheral access API for the STMicro STM32F4 series microcontrollers.
+nb = "0.1.2" #Minimal non-blocking I/O layer
+cortex-m = "0.6"
+cortex-m-rt = "0.6"
+# Panic behaviour, see https://crates.io/keywords/panic-impl for alternatives
+panic-halt = "0.2" #Set the panicking behavior to halt,
+heapless = "0.5.5" #static` friendly data structures that don't require dynamic memory allocation
+heapless-bytes = "0.1.0" #Newtype around heapless byte Vec with efficient serde.
+postgres-derive = "0.4.0"
+#serde = { version = "1.0", features = ["derive"] }
+#serde_json = "1.0"
+#json-gettext = "3.1.7"
+bare-metal = "0.2.5"
+stm32f4xx-hal =  { version = "0.8.3", features = ["stm32f412"]}
+#stm32f41x ="0.1.1"
+stm32f4 = "0.11.0"
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s" #optimising the size when compiling 
